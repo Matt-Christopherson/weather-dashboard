@@ -1,0 +1,28 @@
+header {
+    background-color: #155263;
+    color: whitesmoke;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+body {
+    background-color: #ffc93c;
+}
+
+footer {
+    background-color: #ff9a3c;
+}
+
+label {
+    font-size: 25px;
+}
+
+#search-col {
+    background-color: #ff6f3c;
+    position: absolute;
+    left: 0;
+    width: 25%;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
