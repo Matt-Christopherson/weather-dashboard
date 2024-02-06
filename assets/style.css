@@ -1,3 +1,11 @@
+body {
+    background-color: #ffc93c;
+}
+
+footer {
+    background-color: #ff9a3c;
+}
+
 header {
     background-color: #155263;
     color: whitesmoke;
@@ -6,12 +14,8 @@ header {
     text-align: center;
 }
 
-body {
-    background-color: #ffc93c;
-}
-
-footer {
-    background-color: #ff9a3c;
+hr {
+    background-color: black;
 }
 
 label {
@@ -25,4 +29,13 @@ label {
     width: 25%;
     padding-bottom: 25px;
     padding-top: 25px;
+}
+
+#submit-button {
+    background-color: #155263;
+    border-color: #155263;
+}
+
+#submit-button:hover {
+    background-color: #ffc93c;
 }
