@@ -22,6 +22,10 @@ label {
     font-size: 25px;
 }
 
+#clear-history {
+    margin-top: 25px;
+}
+
 #search-col {
     background-color: #ff6f3c;
     position: absolute;
@@ -31,11 +35,11 @@ label {
     padding-top: 25px;
 }
 
-#submit-button {
-    background-color: #155263;
-    border-color: #155263;
-}
-
 #submit-button:hover {
     background-color: #ffc93c;
+}
+
+.btn {
+    background-color: #155263;
+    border-color: #155263;
 }
