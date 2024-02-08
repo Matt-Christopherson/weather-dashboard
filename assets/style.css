@@ -1,13 +1,13 @@
 body {
-    background-color: #ffc93c;
+    background-color: #feffdf;
 }
 
 footer {
-    background-color: #ff9a3c;
+    background-color: #dde0ab;
 }
 
 header {
-    background-color: #155263;
+    background-color: #668ba4;
     color: whitesmoke;
     padding-top: 25px;
     padding-bottom: 15px;
@@ -26,20 +26,38 @@ label {
     margin-top: 25px;
 }
 
-#search-col {
-    background-color: #ff6f3c;
+#present-card {
+    background-color: #97cba9;
     position: absolute;
-    left: 0;
+    left: 30%;
+    width: 65%;
+    height: 25%;
+    margin-top: 10px;
+    border-color: #668ba4;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#search-col {
+    background-color: #97cba9;
+    position: absolute;
+    left: 0%;
     width: 25%;
     padding-bottom: 25px;
     padding-top: 25px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 10px;
+    border-color: #668ba4;
+    border-style: solid;
+    border-width: 1px;
 }
 
 #submit-button:hover {
-    background-color: #ffc93c;
+    background-color: #feffdf;
 }
 
 .btn {
-    background-color: #155263;
-    border-color: #155263;
+    background-color: #668ba4;
+    border-color: #668ba4;
 }
