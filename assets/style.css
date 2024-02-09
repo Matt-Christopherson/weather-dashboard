@@ -27,15 +27,18 @@ label {
 }
 
 #present-card {
-    background-color: #97cba9;
     position: absolute;
     left: 30%;
-    width: 65%;
-    height: 25%;
+    height: 26%;
     margin-top: 10px;
     border-color: #668ba4;
     border-style: solid;
     border-width: 1px;
+}
+
+#present-weather {
+    text-transform: capitalize;
+    font-weight: bold;
 }
 
 #search-col {
@@ -60,4 +63,17 @@ label {
 .btn {
     background-color: #668ba4;
     border-color: #668ba4;
+}
+
+.card {
+    background-color: #97cba9;
+    width: 65%;
+}
+
+.card-group {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 65%;
+    height: 35%;
 }

@@ -2,14 +2,17 @@ let searchHistory = [];
 let listGroup = document.getElementById('list-group');
 let weatherApiKey = '745a84814c6b8fbf996532eb4bc6712f';
 let city;
+
 let currentDay = dayjs().format("M/D/YYYY");
 let presentCityEl = document.getElementById('present-city');
+let presentWeatherEl = document.getElementById('present-weather');
+let presentIconEl = document.getElementById('present-icon');
 let presentTempEl = document.getElementById('present-temp');
 let presentWindEl = document.getElementById('present-wind');
 let presentHumidityEl = document.getElementById('present-humidity');
 
 function getApi() {
-    let queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + weatherApiKey + '&units=imperial';
+    let queryURL = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + weatherApiKey + '&units=imperial';
     fetch(queryURL)
         .then(function (response) {
             console.log("Response Status: " + response.status);
@@ -21,10 +24,12 @@ function getApi() {
         })
         .then (function (data) {
             console.log(data);
-            presentCityEl.textContent = data.name + ' ' + currentDay;
-            presentTempEl.textContent = 'Temp: ' + data.main.temp + '°F';
-            presentWindEl.textContent = 'Wind: ' + data.wind.speed + ' MPH';
-            presentHumidityEl.textContent = 'Humidity: ' + data.main.humidity + '%'
+            presentIconURL = 'https://openweathermap.org/img/wn/' + data.list[0].weather[0].icon + '.png';
+            presentCityEl.textContent = data.city.name + ' ' + currentDay + ' ';
+            presentWeatherEl.innerHTML = '<img id="present-icon" src="' + presentIconURL + '">' + data.list[0].weather[0].description;
+            presentTempEl.textContent = 'Temp: ' + data.list[0].main.temp + '°F';
+            presentWindEl.textContent = 'Wind: ' + data.list[0].wind.speed + ' MPH';
+            presentHumidityEl.textContent = 'Humidity: ' + data.list[0].main.humidity + '%'
         })
     }
 
