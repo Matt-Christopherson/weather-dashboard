@@ -17,16 +17,20 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="./assets/style.css" />
+        <!-- Font Links -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body onload="checkLocalStorage()">
         <header>
             <h1>Weather Dashboard</h1>
         </header>
         <main>
             <div class="container">
-                <div class="row justify-content-start text-center">
-                    <div id="search-col" class="col col-md-3">
+                <div id="search-col-div" class="row justify-content-start text-center">
+                    <div id="search-col" class="col col-md-3 card">
                         <div class="mb-3">
                             <label for="city-form" class="form-label">Search for a City:</label>
                             <input
@@ -34,7 +38,6 @@
                                 class="form-control"
                                 name="city-form"
                                 id="search-input"
-                                placeholder="Salt Lake City"
                             />
                         </div>
                         <button
@@ -57,70 +60,60 @@
                     </div>
                 </div>
                 <!-- Present day forecast card -->
-                <div class="card" id="present-card">
+                <div class="card weather-card" id="present-card">
                     <div class="card-body">
                         <h4 class="card-title" id="present-city"></h4>
-                        <p class="card-text" id="present-weather"></p>
+                        <p class="card-text" id="present-weather">
                         <p class="card-text" id="present-temp"></p>
-                        <p class="card-text" id="present-wind">Search for a city or choose from your search history</p>
+                        <p class="card-text" id="present-wind"></p>
                         <p class="card-text" id="present-humidity"></p>
                     </div>
                 </div>
                 <!-- Five day forecast cards -->
-                <div class="card-group">
+                <div class="card-group weather-card" id="forecast-cards">
                     <div class="card">
-                        <img
-                            class="card-img-top"
-                            src="holder.js/100x180/"
-                            alt="Card image cap"
-                        />
                         <div class="card-body">
-                            <h4 class="card-title">Title</h4>
-                            <p class="card-text">Text</p>
+                            <h4 class="card-title" id="1date"></h4>
+                            <img id="1icon">
+                            <p class="card-text" id="1temp"></p>
+                            <p class="card-text" id="1wind"></p>
+                            <p class="card-text" id="1humidity"></p>
                         </div>
                     </div>
                     <div class="card">
-                        <img
-                            class="card-img-top"
-                            src="holder.js/100x180/"
-                            alt="Card image cap"
-                        />
                         <div class="card-body">
-                            <h4 class="card-title">Title</h4>
-                            <p class="card-text">Text</p>
+                            <h4 class="card-title" id="2date"></h4>
+                            <img id="2icon">
+                            <p class="card-text" id="2temp"></p>
+                            <p class="card-text" id="2wind"></p>
+                            <p class="card-text" id="2humidity"></p>
                         </div>
                     </div>
                     <div class="card">
-                        <img
-                            class="card-img-top"
-                            src="holder.js/100x180/"
-                            alt="Card image cap"
-                        />
                         <div class="card-body">
-                            <h4 class="card-title">Title</h4>
-                            <p class="card-text">Text</p>
+                            <h4 class="card-title" id="3date"></h4>
+                            <img id="3icon">
+                            <p class="card-text" id="3temp"></p>
+                            <p class="card-text" id="3wind"></p>
+                            <p class="card-text" id="3humidity"></p>
                         </div>
                     </div>
                     <div class="card">
-                        <img
-                            class="card-img-top"
-                            src="holder.js/100x180/"
-                            alt="Card image cap"
-                        />
                         <div class="card-body">
-                            <h4 class="card-title">Title</h4>
-                            <p class="card-text">Text</p>
+                            <h4 class="card-title" id="4date"></h4>
+                            <img id="4icon">
+                            <p class="card-text" id="4temp"></p>
+                            <p class="card-text" id="4wind"></p>
+                            <p class="card-text" id="4humidity"></p>
                         </div>
                     </div>
                     <div class="card">
-                        <img
-                            class="card-img-top"
-                            src="holder.js/100x180/"
-                            alt="Card image cap"
-                        />
                         <div class="card-body">
-                            <h4 class="card-title">Title</h4>
-                            <p class="card-text">Text</p>
+                            <h4 class="card-title" id="5date"></h4>
+                            <img id="5icon">
+                            <p class="card-text" id="5temp"></p>
+                            <p class="card-text" id="5wind"></p>
+                            <p class="card-text" id="5humidity"></p>
                         </div>
                     </div>
                 </div>
@@ -143,10 +136,6 @@
         ></script>
         <!-- Jquery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- Dayjs -->
-        <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-        crossorigin="anonymous"></script>
         <!-- My Javascript -->
         <script src="./assets/script.js"></script>
     </body>
