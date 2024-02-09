@@ -48,7 +48,7 @@ var humiArray = [day1HumidityEl, day2HumidityEl, day3HumidityEl, day4HumidityEl,
 
 
 function getApi() {
-    let queryURL = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + weatherApiKey + '&units=imperial';
+    let queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + weatherApiKey + '&units=imperial';
     fetch(queryURL)
         .then(function (response) {
             console.log("Response Status: " + response.status);
