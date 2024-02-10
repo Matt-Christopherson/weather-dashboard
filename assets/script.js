@@ -46,25 +46,26 @@ var tempArray = [day1TempEl, day2TempEl, day3TempEl, day4TempEl, day5TempEl];
 var windArray = [day1WindEl, day2WindEl, day3WindEl, day4WindEl, day5WindEl];
 var humiArray = [day1HumidityEl, day2HumidityEl, day3HumidityEl, day4HumidityEl, day5HumidityEl];
 
-
+// When the fetch request is made the html is updated with the current weather and a five day forecast.
 function getApi() {
     let queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + weatherApiKey + '&units=imperial';
     fetch(queryURL)
         .then(function (response) {
-            console.log("Response Status: " + response.status);
             return response.json();
         })
         .then (function (data) {
             console.log(data);
+            // The current weather was left out of the for loop because the HTML is slightly different.
             let presentDateString = data.list[0].dt_txt;
-            let presentDatePart = presentDateString.slice(0, 10);
+            let presentDatePart = presentDateString.slice(0, 10); // The date data from the api also shows the hour of the day, and I didn't like the way it looked so this just takes the date. I did the same thing on line 70.
             presentCityEl.textContent = data.city.name + ' ' + presentDatePart + ' ';
             presentIconURL = 'https://openweathermap.org/img/wn/' + data.list[0].weather[0].icon + '.png';
             presentWeatherEl.innerHTML = '<img id="present-icon" src="' + presentIconURL + '">' + data.list[0].weather[0].description;
             presentTempEl.textContent = 'Temp: ' + data.list[0].main.temp + '°F';
             presentWindEl.textContent = 'Wind: ' + data.list[0].wind.speed + ' MPH';
             presentHumidityEl.textContent = 'Humidity: ' + data.list[0].main.humidity + '%';
-            for (i = 0; i < data.list.length; i += 8) {
+            // This for loop updates the five different cards with the data from the api request. I chose to make it a for loop to try to keep the code as DRY as possible, since this js file is already pretty long.
+            for (i = 0; i < data.list.length; i += 8) { // The for loop uses i += 8 instead of i++ because the data in the api array changes days every 8 objects.
                 let dateString = data.list[i+1].dt_txt;
                 let datePart = dateString.slice(0, 10);
                 dateArray[i / 8].innerText = datePart;
@@ -143,6 +144,7 @@ listGroup.addEventListener('click', function(event) {
     location.reload();
 });
 
+// This is for when a user uses the application for the first time, or when the user clears the data. Rather than display empty boxes, the user is only shown the search box.
 function checkLocalStorage() {
     if (localStorage.length === 0) {
         document.getElementById('present-card').style.display = 'none';
@@ -152,9 +154,10 @@ function checkLocalStorage() {
         searchColEl.style.left = '50%';
         searchColEl.style.transform = 'translate(-50%, -50%)';
         searchColEl.style.top = '40%'
+        searchColEl.style.borderTopLeftRadius = '10px';
+        searchColEl.style.borderBottomLeftRadius = '10px';
     }
 }
 
 // Runs the load search history function when the page loads.
 loadSearchHistory();
-
