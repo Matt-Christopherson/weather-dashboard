@@ -12,7 +12,7 @@ When you first use the application, simply type in your desired city and click t
 
 ## Link
 
-https://matt-christopherson.github.io/matts-weather-dashboard/
+https://matt-christopherson.github.io/weather-dashboard/
 
 ## License
 
